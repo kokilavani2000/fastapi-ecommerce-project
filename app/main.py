@@ -1,4 +1,7 @@
 from fastapi import FastAPI
+from  app.database.base import  Base
+from  app.database.session import engine
+
 
 # create  a instance of FastAPI
 app = FastAPI(
@@ -8,6 +11,7 @@ app = FastAPI(
 )
 
 
+Base.metadata.create_all(bind=engine)
 
 @app.get("/")
 def home():
