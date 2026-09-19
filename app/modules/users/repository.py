@@ -2,13 +2,14 @@ from app.modules.users.model import User
 from sqlalchemy import statement, select, scalars
 from sqlalchemy.orm import Session
 
-class UserReository:
+class UserRepository:
 
-    def __init__(self, db):
+    def __init__(self, db:Session)-> None:
         self.db = db
 
 
     def get_all(self)-> list:
+        statement = select(User).order_by(User.id)
         return self.db.scalars(statement).all()
 
 
