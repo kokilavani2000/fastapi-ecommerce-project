@@ -1,4 +1,4 @@
-from  sqlalchemy.orm import DeclarativeMeta
+from  sqlalchemy.orm import DeclarativeBase
 
-class Base(DeclarativeMeta):
+class Base(DeclarativeBase):
     pass
