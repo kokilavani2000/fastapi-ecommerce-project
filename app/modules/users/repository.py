@@ -1,7 +1,6 @@
 from app.modules.users.model import User
-from sqlalchemy import statement, select, scalars
+from sqlalchemy import select
 from sqlalchemy.orm import Session
-
 class UserRepository:
 
     def __init__(self, db:Session)-> None:

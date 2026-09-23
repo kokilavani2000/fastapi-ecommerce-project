@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from app.database.base import Base
 from app.database.session import engine
-
+from app.api.router import api_router
 
 app = FastAPI(
     title="my first e-commerce project API",
@@ -18,3 +18,5 @@ def home():
     return {
         "message": "Welcome to my first e-commerce project API!"
     }
+
+app.include_router(api_router, prefix="/api/v1")

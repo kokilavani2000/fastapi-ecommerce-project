@@ -1,6 +1,5 @@
 from enum import Enum
-from  pydantic import BaseModel
-
+from pydantic import BaseModel, ConfigDict
 
 
 class UserRole(str, Enum):
@@ -9,8 +8,8 @@ class UserRole(str, Enum):
 
 
 class UserBase(BaseModel):
-     full_name: str
-     email: str
+    full_name: str
+    email: str
 
 
 class UserRead(UserBase):
@@ -18,5 +17,4 @@ class UserRead(UserBase):
     is_active: bool
     role: UserRole
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
